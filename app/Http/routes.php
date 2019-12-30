@@ -13,3 +13,6 @@
 
 Route::get('/','ProductController@getIndex');
 Route::get('/add-to-cart/{id}','ProductController@getAddToCart');
+Route::get('/shopping-cart','ProductController@getCart');
+Route::get('/session','ProductController@getanother');
+

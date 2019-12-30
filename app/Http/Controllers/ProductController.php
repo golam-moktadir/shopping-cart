@@ -19,7 +19,16 @@ class ProductController extends Controller
     	$cart = new Cart($oldCart);
     	$cart->add($product,$product->id);
     	$request->session()->put('cart',$cart);
-    	dd($request->session()->get('cart'));
-    	return redirect::to('/');
+    	return redirect('/');
+    }
+    public function getCart(){
+        if(!Session::has('cart')){
+            return view('shop.shopping-cart');
+        }
+        $cart = Session::get('cart');
+        return view('shop.shopping-cart',['products' => $cart->items, 'totalPrice' => $cart->totalPrice]);
+    }
+    public function getanother(){
+        Session::forget('cart');
     }
 }

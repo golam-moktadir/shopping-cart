@@ -16,7 +16,7 @@
       
       
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="#"><i class="fa fa-shopping-cart" aria-hidden='true'></i> Shopping Cart</a></li>
+        <li><a href="{{url('/shopping-cart')}}"><i class="fa fa-shopping-cart" aria-hidden='true'></i> Shopping Cart <span class="badge">{{ Session::has('cart') ? Session::get('cart')->totalQty : ''}}</span></a></li>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user" aria-hidden='true'></i> User Account <span class="caret"></span></a>
           <ul class="dropdown-menu">
